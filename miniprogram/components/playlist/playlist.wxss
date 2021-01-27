@@ -1,0 +1,35 @@
+/* components/playlist/playlist.wxss */
+
+.playlist-container {
+  width: 220rpx;
+  position: relative;
+  padding-bottom: 20rpx;
+}
+
+.playlist-img {
+  width: 100%;
+  height: 220rpx;
+  border-radius: 10rpx;
+}
+
+.playlist-playcount {
+  font-size: 24rpx;
+  color: #fff;
+  text-shadow: 1px 0 0 rgba(0, 0, 0, 0.15);
+  position: absolute;
+  right: 10rpx;
+  top: 4rpx;
+  padding-left: 26rpx;
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEu0lEQVR4Xu2aWahcRRCGv//BF0VRcEElTyruRHBBSSIGTURxXx8UFFdcMYpG82LyIMS4JBGRqLg8KLjERNG4G4OKGhSRIIKCQRBEQVRUcHn5paRP7Dt3zsyZuefcO2ROwTCXO9VVf/1dXae7+ogxF415/LQEtBkw5gy0S2DME6AtgtO+BGzvCRSfvdLfOwE/AD/mH0n/NJ2hjRNg+2BgHnAacPqAAX0EvAy8K+njAcdWUm+EANtHAJekwI+shKS/0rdBBLBW0qv91atp1EqA7QOAa4HrgB06IHwGbAQ2AL8Bv2fffwO7ADtn34cBpwJzgD06bD0PPCRpU7Uwy7VqIcD2vinwCH7XzF2k74vAJklbhwVr+yRgLnAlsE9m58lExCfD2p4yAbbPBO4D9usI/BFJrwwLrNs423sDV3ch4gZJDw7ja0oE2F4C3JU5fh9YUXfgnYElIq4Clma/rZR086AkDE2A7UeBKzKH9wNLJMV6nhaxHTUiakoh6ySdO4jzoQiw/RYQ67KQyyU9PojjunRt7w58AByYbG6UdGJV+wMTYDvS7s7MwUJJQciMiu3YMxybQCyTlC+PUmwDEWA70mttZm2RpFUzGnnm3PZ7ae8R/z1P0gv9sFUmwHbs5sJBIZVZ7geizt9txybplGTzeElRmKeWAbZnAZHmxTobyeCLKG2vB84CvgIWSPqujIFKGWB7JXBTMhKbmvl1zlrdttJWPLbNsSlbJWnR0ATYjh1Ynkbz69iC1h10pz3bMWExcSHzJMWTYpL0zQDb64Cz08iRTv0uJBRLYb2kcwYmwPZFwFNp4BZJs5ueuTrt2z4G2JxsXizp6U77PTOg49m6WNKKOgFOh63s0bhZUrFP2Oa6lIDUyPgyaf4EzJb0/XSArtOH7duAu5PNiGFLbr8XATcCq5PyaknFU6BOfI3b6pjISVnci4CXgDMSwjmSPmwcbUMObL8BLATekZSfYcq7wrb/AKJZGek/S9JfDeFr3Kzt5cDi5GhHSX8WTrtmgO0TUv8t9N6UdHLjKBt0YPsC4NnkYsLhrYyAy4DH0oDlku5oEF/jplOv8utuj8MyAqLLE92ekGDv0A6Un6c+36+Nox/Age0FCWvelwwLsQu8B4hu9S2Sonnzn5QR8AxwYR/f3wDXS3p9AIyNqdqOHkWvHsAvwG7xSJR0ez8Cost6VAW0USDnSopT14yJ7fOB5yoCeEJSLPGeGfBzYiuU1mQFpBgXRbLoCt0r6daKzhtRs/1FtkwDy6cdjnK8GyTFLVVPApx+Lz362g4ncevzmqRoTs6Y2C7wlh7WMp0JMZXVgCoExHk7mJ3x/kAW3FJJy7rNxLgQ0GZAmwEl7fB2CfxfKLfrIjj2NaAloOxKrK0BbQ3Ytltsi2B+s7W9bYXbIlh7EQS6Hi7ScXjUDkOBtdurc4cDD3Q74ZYtgYeBeAmpiqyRdE0VxaZ0bEfL/riK9ifg7XUvEB2W6LT0kugcXSqpuEGqiKFeNduHpCbupKuvDk+T8Pa7GzwaiLc/4xNS6McV2VZJb9cbytSs2T4oNWn2r4q37/X41CCN/uiWgNGfo2YRthnQLL+jb73NgNGfo2YRthnQLL+jb33sM+BfDblwXyyc5zoAAAAASUVORK5CYII=) no-repeat 0 8rpx/22rpx 20rpx;
+}
+
+.playlist-name {
+  font-size: 26rpx;
+  line-height: 1.2;
+  padding: 4rpx 0 0 12rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

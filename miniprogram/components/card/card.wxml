@@ -1,0 +1,2 @@
+<!--miniprogram/components/card/card.wxml-->
+<view class="card">这是一个卡片组件</view>
