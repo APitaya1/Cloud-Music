@@ -1,8 +1,9 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
+const TcbRouter=require('tcb-router')
 
 cloud.init({
-  env: '**********'
+  env: 'suncy-9gnnshjze694fdbf'
 })
 
 //引入路由
@@ -10,7 +11,7 @@ const TcbRouter = require('tcb-router')
 //引入axios
 const axios = require('axios')
 //定义基础URL，修改为自己的穿透地址
-const BASE_URL = 'https://ylwx.cn1.utools.club'
+const BASE_URL = 'https://ylwx.cn.utools.club'
 
 // 云函数入口函数
 exports.main = async (event, context) => {
@@ -30,12 +31,17 @@ exports.main = async (event, context) => {
       })
   })
 
-  //歌单请求列表,传入歌单id,注意转成int类型
+  //根据歌单id获取歌单详情，,注意转成int类型
   app.router('musiclist', async (ctx, next) => {
     console.log('######' + event.playlistId)
     const res = await axios.get(`${BASE_URL}/playlist/detail?id=${parseInt(event.playlistId)}`)
     console.log('######' + res)
     ctx.body = res.data
+  })
+
+  //根据歌单id获取歌曲播放的url
+  app.router('musicUrl',async(ctx,next)=>{
+    const res=await axios.get(`${BASE_URL}/song/url?id=${event.musicId}`)
   })
   return app.serve()
 }

@@ -28,8 +28,17 @@
   margin-bottom: 10rpx;
 }
 
+.musiclist-alia{
+  color: #888;
+}
+
 /* 歌手 */
 .musiclist-singer {
   font-size: 24rpx;
   color: #888;
+}
+
+/* 高亮样式 */
+.playing view,.playing text{
+  color: #d43c33;
 }
