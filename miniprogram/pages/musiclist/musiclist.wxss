@@ -33,14 +33,21 @@
 .detail-img {
   width: 280rpx;
   height: 280rpx;
+  margin-top: 24rpx;
+  margin-left: 24rpx;
   margin-right: 24rpx;
   border-radius: 6rpx;
+  position: absolute;
+  top: 0;
 }
 
 /* 右边的文字 */
-.detail-name {
-  color: #FFFFFF;
-  font-size: 36rpx;
-  line-height: 1.5;
-  font-weight: 400;
+.detail-name{
+  color:#FFFFFF;
+  font-size:36rpx;
+  line-height: 2;
+  width: 400rpx;
+  position: relative;
+  top: -240rpx;
+  right: -325rpx;
 }

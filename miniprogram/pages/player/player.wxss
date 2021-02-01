@@ -1,15 +1,16 @@
-.player-container {
+.player-container{
+  width: 100%;
+  height: 100%;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
+  top:0;
+  left:0;
   right: 0;
   filter: blur(40rpx);
   opacity: 0.5;
   z-index: -1;
 }
 
-.player-mask {
+.player-mask{
   position: absolute;
   top: 0;
   bottom: 0;
@@ -19,10 +20,99 @@
   background-color: #222;
 }
 
-.iconfont{
-  color: #fefefe;
+.player-info{
+  text-align: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.icon-bofang{
-  font-size: 128rpx;
+.player-disc{
+  width:592rpx;
+  height:592rpx;
+  background:url('https://image-un.oss-cn-zhangjiakou.aliyuncs.com/image/qzw/WX-music/disc.png') no-repeat center/contain;
+  position: absolute;
+  left: 50%;
+  transform:translate(-50%,140rpx);
+}
+
+.player-disc::after{
+  content: '';
+  width:192rpx;
+  height:274rpx;
+  position: absolute;
+  top: -150rpx;
+  left: 266rpx;
+  background:url('https://image-un.oss-cn-zhangjiakou.aliyuncs.com/image/qzw/WX-music/needle.png') no-repeat center/contain;
+  transform:rotate(-15deg);
+  transform-origin:24rpx 10rpx;
+  transition: transform 0.8s ease;
+}
+
+.playing.player-disc::after{
+  transform: rotate(0deg);
+}
+
+.player-img{
+  width:368rpx;
+  height: 368rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -184rpx;
+  margin-left: -184rpx;
+}
+
+
+.icon-bofang1,.icon-zanting1{
+  font-size:120rpx;
+  margin: 0 50rpx;
+}
+
+.iconfont{
+  color:#fefefe;
+  position: absolute;
+  bottom: 8%;
+  text-align: center;
+  left: 50%;
+  transform:translateX(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.icon-bofang ,.icon-zanting:before {
+  font-size:120rpx;
+}
+
+.icon-hanhan-01-01:before {
+  font-size: 80rpx;
+  position: absolute;
+  right: 120rpx;
+  bottom: 24rpx;
+}
+.icon-hanhan-01-011:before {
+  font-size: 80rpx;
+  position: absolute;
+  left: 120rpx;
+  bottom: 24rpx;
+}
+
+.zhuan{
+  animation: disc 12s linear infinite;
+}
+
+.ting{
+  animation-play-state: paused;
+}
+
+@keyframes disc{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
 }
