@@ -9,14 +9,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    picUrl:'',
-    isPlaying:false
+    picUrl: '',
+    isPlaying: false
   },
 
-  togglePlaying(){
-    if(this.data.isPlaying){
+
+  onLoad: function (options) {
+    console.log(options)
+    console.log(options.musicId, typeof (options.musicId))
+    playingIndex = options.index
+    musiclist = wx.getStorageSync('musiclist')
+
+    console.log(playingIndex + "____23")
+    this._loadMusicDetail(options.musicId)
+  },
+
+  togglePlaying() {
+    if (this.data.isPlaying) {
       backgroundAudioManager.pause()
-    }else{
+    } else {
       backgroundAudioManager.play()
     }
     this.setData({
@@ -24,74 +35,66 @@ Page({
     })
   },
 
-  onPrev(){
+  onPrev() {
     playingIndex--
-    if(playingIndex === -1){
-      playingIndex = musiclist.length-1
+    if (playingIndex === -1) {
+      playingIndex = musiclist.length - 1
     }
     this._loadMusicDetail(musiclist[playingIndex].id)
   },
-  onNext(){
+  onNext() {
     playingIndex++
-    if(playingIndex === musiclist.length){
-      playingIndex = 0 
+    if (playingIndex === musiclist.length) {
+      playingIndex = 0
     }
     this._loadMusicDetail(musiclist[playingIndex].id)
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log(options)
-    console.log(options.musicId,typeof (options.musicId))
-    playingIndex = options.index
-    musiclist = wx.getStorageSync('musiclist')
 
-    console.log(playingIndex+"____23")
-    this._loadMusicDetail(options.musicId)
-  },
 
-  _loadMusicDetail(musicId){
+  _loadMusicDetail(musicId) {
     let music = musiclist[playingIndex]
-    console.log("music"+music)
+    console.log("music" + music)
     wx.setNavigationBarTitle({
       title: music.name,
     })
     this.setData({
-      picUrl:music.al.picUrl
+      picUrl: music.al.picUrl
     })
     wx.cloud.callFunction({
-      name:'music',
-      data:{
+      name: 'music',
+      data: {
         musicId,
-        $url:'musicUrl'
+        $url: 'musicUrl'
       }
-    }).then((res)=>{
+    }).then((res) => {
       console.log(res)
       const url = res.result.data[0].url
-      if(url === null){
+      if (url === null) {
         wx.showToast({
           title: '没有权限播放'
         })
         backgroundAudioManager.pause()
         this.setData(({
-          isPlaying:false
+          isPlaying: false
         }))
-        return 
+        return
       }
       backgroundAudioManager.src = url
       backgroundAudioManager.title = music.name
       backgroundAudioManager.coverImgUrl = music.al.picUrl
       backgroundAudioManager.singger = music.ar[0].name
       this.setData({
-        isPlaying : true
+        isPlaying: true
       })
     })
   },
-  
-    /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+
+  /**
+ * 生命周期函数--监听页面初次渲染完成
+ */
   onReady: function () {
 
   },
