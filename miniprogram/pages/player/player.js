@@ -37,7 +37,7 @@ Page({
 
   onPrev() {
     playingIndex--
-    if (playingIndex === -1) {
+    if (playingIndex < 0) {
       playingIndex = musiclist.length - 1
     }
     this._loadMusicDetail(musiclist[playingIndex].id)
@@ -48,6 +48,11 @@ Page({
       playingIndex = 0
     }
     this._loadMusicDetail(musiclist[playingIndex].id)
+  },
+  back() {
+    wx.navigateBack({
+      delta: -1,
+    })
   },
   /**
    * 生命周期函数--监听页面加载

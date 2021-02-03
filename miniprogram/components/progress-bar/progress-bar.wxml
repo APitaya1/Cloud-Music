@@ -5,7 +5,7 @@
       <movable-view class="movable-view" direction="horizontal" damping="100" x="{{distance}}" bindchange="onChange"
       bindtouchend="onTouchEnd" />
     </movable-area>
-    <progress stroke-width="4" backgroundColor="#969696" activeColor="#fff" percent="progress"></progress>
+    <progress stroke-width="4" backgroundColor="#969696" activeColor="#fff" percent="{{progress}}"></progress>
   </view>
   <text class="time">{{showTime.totalTime}}</text>
 </view>

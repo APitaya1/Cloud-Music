@@ -8,18 +8,16 @@
   <view class="player-disc {{isPlaying?'playing':''}}">
     <image class="player-img zhuan {{isPlaying?'':'ting'}}" src="{{picUrl}}"></image>
   </view>
-</view>
 
-<!-- 进度条 -->
-<view class="progress-bar">
-  <x-progress-bar />
-</view>
+  <!-- 进度条 -->
+  <view class="progress-bar">
+    <x-progress-bar bind:musicEnd="onNext" />
+  </view>
 
-<!-- 控制面板 -->
-<view class="control"></view>
-  <view class="iconfont">
+  <!-- 控制面板 -->
+  <view class="control">
     <text class="iconfont icon-hanhan-01-01" bind:tap="onPrev"></text>
     <text class="iconfont {{isPlaying?'icon-zanting':'icon-bofang'}}" bind:tap="togglePlaying"></text>
-    <!-- <text class="iconfont icon-zanting"></text> -->
     <text class="iconfont icon-hanhan-01-011" bind:tap="onNext"></text>
   </view>
+</view>
